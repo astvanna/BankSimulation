@@ -19,7 +19,7 @@ File Structure
 Compilation + Execution
 
 To compile the program:
-1. Make sure you have a C++ compiler installed (e.g., g++)
+1. Use a C++ compiler (e.g., g++)
 2. Compile all source files: g++ -std=c++20 BankAccount.cpp BankSystem.cpp main.cpp -o mini_bank
 
 To run the program:
