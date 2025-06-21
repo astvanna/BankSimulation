@@ -2,14 +2,13 @@
 #include <iostream>
 
 void BankSystem::addAccount(const std::string &accHolder, int accNum, double initBalance) {
-	for (const auto &account : accounts) {
-		if (account.getAccountNumber() == accNum) {
+	for (size_t i = 0; i < accounts.size(); ++i) {
+		if (accounts[i].getAccountNumber() == accNum) {
 			std::cout << "Account number " << accNum << " already exists." << std::endl;
 			return;
 		}
 	}
-	
-	accounts.emplace_back(BankAccount(accHolder, accNum, initBalance));
+	accounts.push_back(accHolder, accNum, initBalance);
 }
 
 BankAccount* BankSystem::findAccount(int accNum) {
@@ -39,7 +38,8 @@ void BankSystem::transferFunds(int senderAccNum, int receiverAccNum, double amou
 
 void BankSystem::displayAllAccounts() const {
 	std::cout << "\nAll Bank Accounts" << std::endl;
-	for (const auto &account : accounts) {
-		account.display();
+	for (size_t i = 0; i < accounts.size(); ++i) {
+		std::cout << "\t";
+		accounts[i].display();
 	}
 }
