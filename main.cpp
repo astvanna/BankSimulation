@@ -32,7 +32,7 @@ int main() {
     bank.transferFunds(1002, 1001, 300);
 
     // Try invalid transfer
-    bank.transferFunds(1002, 1001, 2000); // Should fail - insufficient funds
+    bank.transferFunds(1002, 1001, 2000);
 
     // Display accounts after transactions
     bank.displayAllAccounts();
