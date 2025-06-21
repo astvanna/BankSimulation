@@ -1,27 +1,19 @@
 #include "BankAccount.h"
 #include <iostream>
 
-BankAccount::BankAccount() 
-	: accountHolder("Unknown"), accountNumber(0), balance(0.0) {
+BankAccount::BankAccount() : accountHolder("Unknown"), accountNumber(0), balance(0.0) {
 	std::cout << "Default account created" << std::endl;
 }
 
-BankAccount::BankAccount(const std::string &accHolder, int accNum, double initBalance) {
-	accountHolder = accHolder;
-	accountNumber = accNum;
-	balance = initBalance;
+BankAccount::BankAccount(const std::string &accHolder, int accNum, double initBalance) : accountHolder(accHolder), accountNumber(accNum), balance(initBalance) {
 	std::cout << "Account created for " << accHolder << std::endl;
 }
 
-BankAccount::BankAccount(const BankAccount &other) {
-	accountHolder = other.accountHolder;
-	accountNumber = other.accountNumber;
-	balance = other.balance;
+BankAccount::BankAccount(const BankAccount &other) : accountHolder(other.accountHolder), accountNumber(other.accountNumber), balance(other.balance) {
 	std::cout << "Account copied for " << accountHolder << std::endl;
 }
 
-BankAccount::BankAccount(std::string&& accHolder, int accNum, double initBalance)
-	: accountHolder(std::move(accHolder)), accountNumber(accNum), balance(initBalance) {
+BankAccount::BankAccount(std::string&& accHolder, int accNum, double initBalance) : accountHolder(std::move(accHolder)), accountNumber(accNum), balance(initBalance) {
 	std::cout << "Account created (initializer list) for " << accountHolder << std::endl;
 }
 
